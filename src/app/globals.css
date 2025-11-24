@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  /* Arka plan body pseudo yerine layout'ta fixed div ile veriliyor */
+}
+
+/* Kart ve yüzeyler için ortak sınıflar (utility tarzı) */
+.glass-surface {
+  @apply bg-white/80 backdrop-blur-sm shadow-md rounded-xl border border-white/30;
+}
+
+.glass-header {
+  @apply bg-white/70 backdrop-blur-md border-b border-white/30 shadow-sm;
+}
+
+.glass-footer {
+  @apply bg-white/60 backdrop-blur-md border-t border-white/20 text-gray-200;
+}

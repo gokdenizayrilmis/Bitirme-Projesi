@@ -87,11 +87,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="mb-8 text-center text-white">
-        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Kampüs Asistanı</h1>
-        <p className="text-white/70 text-sm sm:text-base mt-1">Kampüs hayatın için gereken her şey, tek bir yerde</p>
-      </div>
+    <div className="max-w-5xl mx-auto py-20">
       <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
         {modules.map((module) => (
           <ModuleCard

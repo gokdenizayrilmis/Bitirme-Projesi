@@ -27,13 +27,13 @@ body {
 
 /* Kart ve yüzeyler için ortak sınıflar (utility tarzı) */
 .glass-surface {
-  @apply bg-white/80 backdrop-blur-sm shadow-md rounded-xl border border-white/30;
+  @apply bg-white backdrop-blur-lg shadow-xl rounded-2xl border border-[#eebbc3]/20 transition transition-colors transition-transform;
 }
 
 .glass-header {
-  @apply bg-white/70 backdrop-blur-md border-b border-white/30 shadow-sm;
+  @apply bg-gradient-to-r from-[#232946]/90 via-[#232946]/80 to-[#0057ff]/80 backdrop-blur-lg border-b border-[#eebbc3]/20 shadow-lg;
 }
 
 .glass-footer {
-  @apply bg-white/60 backdrop-blur-md border-t border-white/20 text-gray-200;
+  @apply bg-gradient-to-r from-[#232946]/90 via-[#232946]/80 to-[#0057ff]/80 backdrop-blur-lg border-t border-[#eebbc3]/20 text-[#eebbc3]/80;
 }

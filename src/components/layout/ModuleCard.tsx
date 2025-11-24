@@ -10,57 +10,58 @@ interface ModuleCardProps {
 }
 
 const colorMap: Record<string, { bg: string; text: string; border: string; hover: string }> = {
-  'blue-500': { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-500', hover: 'group-hover:text-blue-600' },
-  'green-500': { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-500', hover: 'group-hover:text-green-600' },
-  'orange-500': { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-500', hover: 'group-hover:text-orange-600' },
-  'purple-500': { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-500', hover: 'group-hover:text-purple-600' },
-  'pink-500': { bg: 'bg-pink-50', text: 'text-pink-600', border: 'border-pink-500', hover: 'group-hover:text-pink-600' },
-  'emerald-500': { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-500', hover: 'group-hover:text-emerald-600' },
-  'red-500': { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-500', hover: 'group-hover:text-red-600' },
-  'rose-500': { bg: 'bg-rose-50', text: 'text-rose-600', border: 'border-rose-500', hover: 'group-hover:text-rose-600' },
-  'indigo-500': { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-500', hover: 'group-hover:text-indigo-600' },
-  'gray-500': { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-500', hover: 'group-hover:text-gray-600' },
+  'blue-500': { bg: 'bg-[#e0e7ff]/80', text: 'text-[#0057ff]', border: 'border-[#0057ff]', hover: 'group-hover:text-[#0057ff]' },
+  'green-500': { bg: 'bg-[#d1fae5]/80', text: 'text-[#43d9ad]', border: 'border-[#43d9ad]', hover: 'group-hover:text-[#43d9ad]' },
+  'orange-500': { bg: 'bg-[#fff3e0]/80', text: 'text-[#ff8906]', border: 'border-[#ff8906]', hover: 'group-hover:text-[#ff8906]' },
+  'purple-500': { bg: 'bg-[#ede9fe]/80', text: 'text-[#6c63ff]', border: 'border-[#6c63ff]', hover: 'group-hover:text-[#6c63ff]' },
+  'pink-500': { bg: 'bg-[#fce7f3]/80', text: 'text-[#eebbc3]', border: 'border-[#eebbc3]', hover: 'group-hover:text-[#eebbc3]' },
+  'emerald-500': { bg: 'bg-[#d1fae5]/80', text: 'text-[#43d9ad]', border: 'border-[#43d9ad]', hover: 'group-hover:text-[#43d9ad]' },
+  'red-500': { bg: 'bg-[#fee2e2]/80', text: 'text-[#e63946]', border: 'border-[#e63946]', hover: 'group-hover:text-[#e63946]' },
+  'rose-500': { bg: 'bg-[#ffe4e6]/80', text: 'text-[#eebbc3]', border: 'border-[#eebbc3]', hover: 'group-hover:text-[#eebbc3]' },
+  'indigo-500': { bg: 'bg-[#e0e7ff]/80', text: 'text-[#6c63ff]', border: 'border-[#6c63ff]', hover: 'group-hover:text-[#6c63ff]' },
+  'gray-500': { bg: 'bg-[#f5f7fa]/80', text: 'text-[#232946]', border: 'border-[#232946]', hover: 'group-hover:text-[#232946]' },
 };
 
 export default function ModuleCard({ title, description, href, icon: Icon, color }: ModuleCardProps) {
   const colors = colorMap[color] || colorMap['blue-500'];
-  
+
   return (
     <Link href={href}>
       <div
         className={`
-          group relative overflow-hidden rounded-2xl 
-          bg-white shadow-md hover:shadow-xl 
-          transition-all duration-300 
-          border-2 border-transparent hover:${colors.border}
+          glass-surface group relative overflow-hidden rounded-2xl
+          shadow-md hover:shadow-xl transition-all duration-300
+          border border-transparent hover:${colors.border} hover:border-2
           p-6 h-full
+          hover:scale-[1.03]
         `}
+        style={{ boxShadow: '0 4px 24px 0 rgba(35,41,70,0.10)' }}
       >
         <div className="flex items-center gap-4">
           <div
             className={`
-              flex items-center justify-center 
-              w-14 h-14 rounded-full 
+              flex items-center justify-center
+              w-14 h-14 rounded-full
               ${colors.bg} ${colors.text}
-              group-hover:scale-110 transition-transform duration-300
+              group-hover:scale-110 transition-transform duration-300 drop-shadow-sm
             `}
           >
             <Icon size={28} strokeWidth={2} />
           </div>
-          
+
           <div className="flex-1">
-            <h3 className={`text-lg font-bold text-gray-900 ${colors.hover} transition-colors`}>
+            <h3 className={`text-lg font-bold ${colors.text} ${colors.hover} transition-colors`}>
               {title}
             </h3>
             {description && (
-              <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+              <p className="text-sm mt-1 line-clamp-2 text-black">
                 {description}
               </p>
             )}
           </div>
-          
+
           <svg
-            className={`w-5 h-5 text-gray-400 ${colors.hover} group-hover:translate-x-1 transition-all`}
+            className={`w-5 h-5 ${colors.text} ${colors.hover} group-hover:translate-x-1 transition-all`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

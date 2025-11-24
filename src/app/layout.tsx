@@ -30,18 +30,18 @@ export default function RootLayout({
         {/* Arka plan resmi ve karartma overlay */}
         <div className="fixed inset-0 -z-10">
           {/* Fallback gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#232946] via-[#1a2233] to-[#232946]" />
           {/* Arka plan görüntüsü - Önce local (/campus-bg.jpg), yoksa placeholder */}
           <div
-            className="absolute inset-0 opacity-70"
+            className="absolute inset-0 opacity-80"
             style={{ 
               backgroundImage: 'url(/campus-bg.jpg), url(https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80)', 
               backgroundSize: 'cover', 
               backgroundPosition: 'center' 
             }}
           />
-          {/* Overlay koyulaştırma */}
-          <div className="absolute inset-0 bg-black/70" />
+          {/* Lacivert overlay */}
+          <div className="absolute inset-0 bg-[#232946]/80" />
         </div>
 
         <div className="relative flex min-h-screen flex-col">

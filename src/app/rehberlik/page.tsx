@@ -110,8 +110,8 @@ export default function RehberlikPage() {
         </section>
 
         {/* Önemli Not */}
-        <div className="bg-blue-200/40 backdrop-blur-sm border-l-4 border-blue-400 p-6 rounded-r-xl">
-          <p className="text-white">
+        <div className="bg-[#e3f0ff] border-l-4 border-[#0057ff] p-6 rounded-r-xl">
+          <p className="text-[#0057ff] font-medium">
             💙 <strong>Unutma:</strong> Yalnız değilsin. Her öğrenci zaman zaman zorlanır. 
             Yardım istemek güçlülük göstergesidir.
           </p>

@@ -1,3 +1,15 @@
+
+// Yardımcı fonksiyon: Tailwind renk kodunu hex'e çevir
+function getColor(color: string, shade: number) {
+  const colorMap: Record<string, Record<string, string>> = {
+    red:    { "500": '#ef4444', "600": '#dc2626' },
+    blue:   { "500": '#3b82f6', "600": '#2563eb' },
+    orange: { "500": '#f59e42', "600": '#ea580c' },
+    gray:   { "500": '#6b7280', "600": '#4b5563' },
+  };
+  return colorMap[color]?.[String(shade)] || '#6b7280';
+}
+
 import Link from 'next/link';
 import { AlertTriangle, Phone, MapPin, ChevronLeft } from 'lucide-react';
 
@@ -6,7 +18,7 @@ export default function AcilDurumPage() {
     { baslik: 'Ambulans', telefon: '112', renk: 'red' },
     { baslik: 'Polis', telefon: '155', renk: 'blue' },
     { baslik: 'İtfaiye', telefon: '110', renk: 'orange' },
-    { baslik: 'Kampüs Güvenlik', telefon: '0312 XXX XX XX', renk: 'gray' },
+    { baslik: 'Kampüs Güvenlik Numarası', telefon: '08502735', renk: 'gray' },
   ];
 
   const toplanmaAlanlari = [
@@ -53,20 +65,22 @@ export default function AcilDurumPage() {
               <a
                 key={item.telefon}
                 href={`tel:${item.telefon}`}
-                className={`
-                  glass-surface p-6 hover:shadow-lg transition-shadow
-                  border-l-4 border-${item.renk}-500
-                `}
+                className="glass-surface p-6 hover:shadow-lg transition-shadow border-l-4"
+                style={{ borderLeftColor: getColor(item.renk, 500) }}
               >
                 <h3 className="font-bold text-lg text-gray-900 mb-2">
                   {item.baslik}
                 </h3>
-                <p className="text-2xl font-mono font-bold text-${item.renk}-600">
+                <p
+                  className="text-2xl font-mono font-bold"
+                  style={{ color: getColor(item.renk, 600) }}
+                >
                   {item.telefon}
                 </p>
               </a>
             ))}
           </div>
+        // ...existing code...
         </section>
 
         {/* Toplanma Alanları */}

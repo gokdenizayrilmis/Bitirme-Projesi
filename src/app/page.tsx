@@ -13,6 +13,28 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
+  // Arka plan ve overlay sadece ana sayfa için
+  return (
+    <>
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#232946] via-[#1a2233] to-[#232946]" />
+        <div
+          className="absolute inset-0 opacity-80"
+          style={{
+            backgroundImage:
+              'url(/campus-bg.jpg), url(https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="absolute inset-0 bg-[#232946]/80" />
+      </div>
+      <HomeContent />
+    </>
+  );
+}
+
+function HomeContent() {
   const modules = [
     {
       title: 'Duyurular',

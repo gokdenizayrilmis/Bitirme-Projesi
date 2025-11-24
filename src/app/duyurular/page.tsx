@@ -51,9 +51,13 @@ export default function DuyurularPage() {
     { value: 'önemli', label: 'Önemli', color: 'red' },
   ];
 
-  const getCategoryColor = (category: string) => {
-    const cat = categories.find(c => c.value === category);
-    return cat?.color || 'gray';
+  // Kategori için canlı renk ve label map'i
+  const categoryStyleMap: Record<string, { bg: string; text: string; label: string }> = {
+    genel:    { bg: 'bg-[#e3f0ff]', text: 'text-[#0057ff]', label: 'Genel' },
+    akademik: { bg: 'bg-[#e6ffe6]', text: 'text-[#43d9ad]', label: 'Akademik' },
+    sosyal:   { bg: 'bg-[#f3e8ff]', text: 'text-[#6c63ff]', label: 'Sosyal' },
+    önemli:   { bg: 'bg-[#ffe3e3]', text: 'text-[#e63946]', label: 'Önemli' },
+    all:      { bg: 'bg-gray-100', text: 'text-gray-700', label: 'Tümü' },
   };
 
   const filteredAnnouncements = selectedCategory === 'all'
@@ -144,13 +148,11 @@ export default function DuyurularPage() {
                 >
                   {/* Kategori Badge */}
                   <div className="flex items-center gap-2 mb-3">
-                    <span className={`
-                      inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
-                      bg-${getCategoryColor(announcement.category)}-100 
-                      text-${getCategoryColor(announcement.category)}-700
-                    `}>
+                    <span
+                      className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold shadow-sm border border-white/40 ${categoryStyleMap[announcement.category]?.bg || 'bg-gray-100'} ${categoryStyleMap[announcement.category]?.text || 'text-gray-700'}`}
+                    >
                       <Tag size={12} />
-                      {announcement.category}
+                      {categoryStyleMap[announcement.category]?.label || announcement.category}
                     </span>
                     <span className="flex items-center gap-1 text-xs text-gray-500">
                       <Calendar size={12} />
@@ -183,8 +185,8 @@ export default function DuyurularPage() {
         )}
 
         {/* Bilgilendirme */}
-        <div className="mt-8 bg-blue-200/40 backdrop-blur-sm border-l-4 border-blue-400 p-6 rounded-r-xl">
-          <p className="text-white text-sm">
+        <div className="mt-8 bg-[#e3f0ff] border-l-4 border-[#0057ff] p-6 rounded-r-xl">
+          <p className="text-[#0057ff] text-sm font-medium">
             💡 <strong>İpucu:</strong> Önemli duyuruları kaçırmamak için bu sayfayı sık sık ziyaret edin.
           </p>
         </div>

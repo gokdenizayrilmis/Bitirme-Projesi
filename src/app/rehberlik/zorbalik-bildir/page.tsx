@@ -29,12 +29,12 @@ export default function ZorbalikBildirPage() {
 
       <main className="max-w-3xl mx-auto px-4 py-2">
         {/* Bilgilendirme */}
-        <div className="bg-blue-200/40 backdrop-blur-sm border-l-4 border-blue-400 p-6 rounded-r-xl mb-6">
-          <p className="text-white">
-            🔒 <strong>Gizlilik:</strong> Bu form tamamen anonimdir. Hiçbir kişisel bilgin kaydedilmez.
-            Raporun kampüs yönetimine iletilecek ve gerekli önlemler alınacaktır.
-          </p>
-        </div>
+          <div className="bg-[#e3f0ff] border-l-4 border-[#0057ff] p-6 rounded-r-xl mb-6">
+            <p className="text-[#0057ff] font-medium">
+              🔒 <strong>Gizlilik:</strong> Bu form tamamen anonimdir. Hiçbir kişisel bilgin kaydedilmez.
+              Raporun kampüs yönetimine iletilecek ve gerekli önlemler alınacaktır.
+            </p>
+          </div>
 
         {/* Form */}
         <form className="glass-surface p-6 space-y-6">
@@ -47,15 +47,15 @@ export default function ZorbalikBildirPage() {
               id="reportType"
               name="reportType"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-black placeholder:text-gray-400"
             >
-              <option value="">Seçiniz</option>
-              <option value="fiziksel">Fiziksel Zorbalık</option>
-              <option value="sozlu">Sözlü/Psikolojik Zorbalık</option>
-              <option value="siber">Siber Zorbalık</option>
-              <option value="cinsel">Cinsel Taciz</option>
-              <option value="ayrimcilik">Ayrımcılık</option>
-              <option value="diger">Diğer</option>
+                <option value="" className="text-black">Seçiniz</option>
+                <option value="fiziksel" className="text-black">Fiziksel Zorbalık</option>
+                <option value="sozlu" className="text-black">Sözlü/Psikolojik Zorbalık</option>
+                <option value="siber" className="text-black">Siber Zorbalık</option>
+                <option value="cinsel" className="text-black">Cinsel Taciz</option>
+                <option value="ayrimcilik" className="text-black">Ayrımcılık</option>
+                <option value="diger" className="text-black">Diğer</option>
             </select>
           </div>
 
@@ -64,25 +64,26 @@ export default function ZorbalikBildirPage() {
             <label htmlFor="location" className="block text-sm font-medium text-gray-900 mb-2">
               Olay Yeri
             </label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              placeholder="Örn: Mühendislik Fakültesi kantini"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            />
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Örn: Mühendislik Fakültesi kantini"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-black placeholder:text-gray-400"
+              />
           </div>
 
           {/* Olay Tarihi */}
           <div>
-            <label htmlFor="incidentDate" className="block text-sm font-medium text-gray-900 mb-2">
+            <label htmlFor="incidentDate" className="block text-sm font-medium text-gray-900 mb-2 text-black placeholder:text-black">
               Olay Tarihi (Yaklaşık)
             </label>
             <input
               type="date"
               id="incidentDate"
               name="incidentDate"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="gg.aa.yyyy"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-black placeholder:text-gray-400"
             />
           </div>
 
@@ -91,14 +92,15 @@ export default function ZorbalikBildirPage() {
             <label htmlFor="witnessCount" className="block text-sm font-medium text-gray-900 mb-2">
               Tanık Sayısı (Yaklaşık)
             </label>
-            <input
-              type="number"
-              id="witnessCount"
-              name="witnessCount"
-              min="0"
-              defaultValue="0"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            />
+              <input
+                type="number"
+                id="witnessCount"
+                name="witnessCount"
+                min="0"
+                defaultValue="0"
+                placeholder="0"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-black placeholder:text-gray-400"
+              />
           </div>
 
           {/* Açıklama */}
@@ -106,14 +108,14 @@ export default function ZorbalikBildirPage() {
             <label htmlFor="description" className="block text-sm font-medium text-gray-900 mb-2">
               Olayın Detayları *
             </label>
-            <textarea
-              id="description"
-              name="description"
-              required
-              rows={6}
-              placeholder="Lütfen olayı mümkün olduğunca detaylı anlatın. Ne oldu, kim tarafından, nasıl hissettiğiniz..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
-            />
+              <textarea
+                id="description"
+                name="description"
+                required
+                rows={6}
+                placeholder="Lütfen olayı mümkün olduğunca detaylı anlatın. Ne oldu, kim tarafından, nasıl hissettiğiniz..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none text-black placeholder:text-gray-400"
+              />
           </div>
 
           {/* Öncelik */}
@@ -141,7 +143,7 @@ export default function ZorbalikBildirPage() {
           <div className="flex gap-4 pt-4">
             <button
               type="submit"
-              className="flex-1 bg-orange-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors"
+              className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors"
             >
               Anonim Gönder
             </button>
@@ -155,12 +157,12 @@ export default function ZorbalikBildirPage() {
         </form>
 
         {/* Destek Mesajı */}
-        <div className="mt-6 bg-green-200/40 backdrop-blur-sm border-l-4 border-green-400 p-6 rounded-r-xl">
-          <p className="text-white">
-            💚 Raporun aldıktan sonra kampüs yönetimi durumu değerlendirecek. 
-            Eğer acil bir durumdaysan, lütfen doğrudan kampüs güvenliğini ara: 0312 XXX XX XX
-          </p>
-        </div>
+          <div className="bg-[#e3f0ff] border-l-4 border-[#0057ff] p-8 rounded-r-xl  mt-8">
+            <p className="text-[#0057ff] font-medium">
+              💙 Raporun aldıktan sonra kampüs yönetimi durumu değerlendirecek. 
+                Eğer acil bir durumdaysan, lütfen doğrudan bizi ara: 0850 273 5 735
+            </p>
+          </div>
       </main>
     </div>
   );

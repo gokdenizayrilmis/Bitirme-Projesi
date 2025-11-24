@@ -12,9 +12,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:info@kampusasistani.com", label: "E-posta" },
+    { icon: Github, href: "https://github.com/gokdenizayrilmis", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/gokdenizayrilmis/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:ayrilmis.gokdeniz@gmail.com", label: "E-posta" },
   ];
 
   return (
@@ -90,7 +90,7 @@ export default function Footer() {
               © {currentYear} Kampüs Asistanı · Bitirme Projesi · Tüm hakları saklıdır
             </p>
             <p className="flex items-center gap-1">
-              Yapıldı <Heart size={12} className="text-red-400 fill-red-400 animate-pulse" /> ile
+              Developed By Gökdeniz Ayrılmış
             </p>
           </div>
         </div>

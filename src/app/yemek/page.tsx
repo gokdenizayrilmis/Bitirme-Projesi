@@ -1,20 +1,27 @@
-import { Apple, ChefHat, Clock, Coffee, UtensilsCrossed } from 'lucide-react';
+'use client';
+
+import { Apple, ChefHat, Clock, Coffee, UtensilsCrossed, X } from 'lucide-react';
+import { useState } from 'react';
+import Image from 'next/image';
 
 const diningOptions = [
   {
-    title: 'Ana Yemekhane',
-    description: 'Günlük menü, çorba ve ana yemek seçenekleri.',
+    title: 'UNI Gastro',
+    description: 'Ana yemekler, burgerler ve atıştırmalıklar.',
     note: 'Hafta içi 11.30 - 14.30 / 17.30 - 19.30',
+    menuImage: '/menus/unigastro.png',
   },
   {
-    title: 'Kafeterya & Atıştırmalık',
-    description: 'Sandviç, tost, tatlı ve kahve çeşitleri.',
+    title: 'Tea Shop',
+    description: 'Kek, pasta, sandviç çeşitleri ve sıcak içecekler.',
     note: 'Hafta içi 08.00 - 21.00',
+    menuImage: '/menus/teashop.png',
   },
   {
-    title: 'Vejetaryen Köşesi',
-    description: 'Bitkisel protein tabakları, salata barı ve günlük smoothie.',
-    note: 'Salı & Perşembe günleri özel menü',
+    title: 'CoffeFactory',
+    description: 'Özel kahve çeşitleri ve atıştırmalıklar.',
+    note: 'Hafta içi 08.00 - 20.00',
+    menuImage: '/menus/coffefactory.png',
   },
 ];
 
@@ -26,6 +33,7 @@ const upcomingFeatures = [
 ];
 
 export default function DiningPage() {
+  const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-10">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
@@ -60,17 +68,23 @@ export default function DiningPage() {
                 className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <div>
+                  <div className="flex-1">
                     <p className="text-base font-semibold text-gray-900">
                       {option.title}
                     </p>
                     <p className="text-sm text-gray-600">{option.description}</p>
+                    <p className="mt-2 text-xs font-medium uppercase tracking-wide text-gray-500">
+                      {option.note}
+                    </p>
                   </div>
                   <Clock className="text-orange-400" size={18} />
                 </div>
-                <p className="mt-3 text-xs font-medium uppercase tracking-wide text-gray-500">
-                  {option.note}
-                </p>
+                <button
+                  onClick={() => setSelectedMenu(option.menuImage)}
+                  className="mt-4 w-full rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-orange-600 hover:to-orange-700 hover:shadow-lg active:scale-[0.98]"
+                >
+                  Menüyü Gör
+                </button>
               </div>
             ))}
           </div>
@@ -98,6 +112,35 @@ export default function DiningPage() {
           </ul>
         </section>
       </div>
+
+      {/* Modal */}
+      {selectedMenu && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedMenu(null)}
+        >
+          <div
+            className="relative max-h-[95vh] max-w-[95vw] overflow-auto rounded-2xl bg-white shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedMenu(null)}
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all hover:bg-white hover:shadow-xl active:scale-95"
+              aria-label="Kapat"
+            >
+              <X size={24} className="text-gray-700" />
+            </button>
+            <Image
+              src={selectedMenu}
+              alt="Menü"
+              width={1920}
+              height={1080}
+              className="h-auto w-full object-contain"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

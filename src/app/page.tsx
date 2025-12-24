@@ -4,12 +4,13 @@ import {
   Map,
   UtensilsCrossed,
   Bus,
-  MessageSquare,
   Recycle,
   AlertTriangle,
   Heart,
   ClipboardList,
   Shield,
+  GraduationCap,
+  Network,
 } from 'lucide-react';
 
 export default function Home() {
@@ -65,13 +66,6 @@ function HomeContent() {
       color: 'purple-500',
     },
     {
-      title: 'Geri Bildirim',
-      description: 'Öneri ve şikayetlerinizi iletin',
-      href: '/geri-bildirim',
-      icon: MessageSquare,
-      color: 'pink-500',
-    },
-    {
       title: 'Geri Dönüşüm',
       description: 'Geri dönüşüm kutuları haritası',
       href: '/geri-donusum',
@@ -93,11 +87,26 @@ function HomeContent() {
       color: 'rose-500',
     },
     {
-      title: 'Anket Merkezi',
-      description: 'Anketlere katıl, görüşlerini paylaş',
-      href: '/anketler',
+      title: 'Anket & Geri Bildirim',
+      description: 'Önerilerini paylaş, kampüsü birlikte geliştirelim',
+      href: '/geri-bildirim',
       icon: ClipboardList,
       color: 'indigo-500',
+    },
+    {
+      title: 'Bitirme Projeleri ile İlgili Anketler',
+      description: 'Mevcut bitirme projelerine katılım sağlayın',
+      href: '/bitirme-projeleri',
+      icon: GraduationCap,
+      color: 'violet-500',
+    },
+    {
+      title: 'UniConnect+',
+      description:
+        'Öğrenciyi geliştiren, şirketi destekleyen, kampüsü birbirine bağlayan yenilikçi bir platform.',
+      href: '/uniconnect',
+      icon: Network,
+      color: 'cyan-500',
     },
     {
       title: 'Admin Panel',

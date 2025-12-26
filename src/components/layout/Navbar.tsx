@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, GraduationCap, User, Monitor } from "lucide-react";
 
@@ -21,7 +22,14 @@ export default function Navbar() {
             href="/" 
             className="group flex items-center gap-2.5 font-bold tracking-tight transition-all"
           >
-            <span className="text-2xl group-hover:scale-110 transition-transform">🎓</span>
+            <div className="relative w-20 h-20 group-hover:scale-110 transition-transform">
+              <Image 
+                src="/logo.png" 
+                alt="Arel Üniversitesi Asistanı Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
             <span className="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-xl text-transparent">
               Kampüs Asistanı
             </span>

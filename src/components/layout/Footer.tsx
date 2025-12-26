@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Mail, MapPin, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -25,7 +26,14 @@ export default function Footer() {
           {/* Logo ve Açıklama */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🎓</span>
+              <div className="relative w-8 h-8">
+                <Image 
+                  src="/logo.png" 
+                  alt="Arel Üniversitesi Asistanı Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="font-bold text-lg bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                 Kampüs Asistanı
               </span>
